@@ -50,7 +50,7 @@
     padding: 0 5px;
 
     &-text {
-      @include FontStyle(12px, 500, $sorme);
+      @include FontStyle(12px, 500, $indigo);
     }
   }
 

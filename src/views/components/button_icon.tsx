@@ -1,5 +1,4 @@
 import {
-    memo,
     ReactElement,
     useCallback,
     MouseEvent,
@@ -14,7 +13,7 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
     route?:any
 }
 
-export function ButtonIcon({ route,onClick, title , backgroundColor , color }: Props): ReactElement {
+const ButtonIcon=({ route,onClick, title , backgroundColor , color }: Props): ReactElement => {
 
     const navigate = useNavigate();
     const handleOnClick = useCallback(
@@ -42,4 +41,4 @@ export function ButtonIcon({ route,onClick, title , backgroundColor , color }: P
     )
 }
 
-export default memo(ButtonIcon);
+export default ButtonIcon;

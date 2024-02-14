@@ -1,46 +1,45 @@
 import {
-  memo,
   ReactElement,
   useCallback,
   MouseEvent,
   ButtonHTMLAttributes,
 } from "react";
 import { useNavigate } from "react-router-dom";
-import LoadingSpinner from "./loading_spinner";
+import { Link } from "react-router-dom";
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   title: string;
+  icon?:any;
   route?:string;
   myStyle?:string;
   loading?:boolean
+  disabled?:boolean;
+  textStyle?:string;
 }
 
-export function ButtonComponent({ onClick,loading, title,route , myStyle}: Props): ReactElement {
-  const navigate = useNavigate();
+const ButtonComponent=({ onClick,loading, textStyle, icon, title,route , myStyle , disabled}: Props): ReactElement=> {
   const handleOnClick = useCallback(
     (event: MouseEvent<HTMLButtonElement>) => {
+      event.preventDefault();
       onClick?.(event);
-      if(route){
-        navigate(route)
-      }
     },
     [onClick]
   );
-
   return (
     <button
-      className={`button-component handle-loading-btn w-100 ${myStyle}`}
+      className={`button-component handle-loading-btn  ${myStyle}`}
       onClick={handleOnClick}
+      disabled={disabled}
     >
-      <h3 className="button-component-text">
-        {loading ? 
-        <LoadingSpinner />
-        :
-        `${title}`
-        }
+      <h3 className={`button-component-text ${textStyle}`}>
+        <div className="button-component-title">
+          {route && <Link to={route} target="_blank"></Link>}
+           {icon && icon}
+           {title}  
+        </div>
       </h3>
     </button>
   )
 }
 
-export default memo(ButtonComponent);
+export default ButtonComponent;

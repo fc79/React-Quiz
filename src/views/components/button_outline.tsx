@@ -1,5 +1,4 @@
 import {
-    memo,
     ReactElement,
     useCallback,
     MouseEvent,
@@ -9,8 +8,7 @@ import {
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
     title: string;
 }
-
-export function ButtonOutline({ onClick, title }: Props): ReactElement {
+const ButtonOutline=({ onClick, title }: Props): ReactElement => {
 
     const handleOnClick = useCallback((event: MouseEvent<HTMLButtonElement>) => {
         onClick?.(event);
@@ -28,4 +26,4 @@ export function ButtonOutline({ onClick, title }: Props): ReactElement {
     )
 }
 
-export default memo(ButtonOutline);
+export default ButtonOutline;

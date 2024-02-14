@@ -1,48 +1,78 @@
 import {
   ChangeEvent,
   InputHTMLAttributes,
-  memo,
   ReactElement,
   useCallback,
 } from "react";
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
   value?: any;
-  title: string;
-  placeholder: string;
+  placeholder?: string;
   type: string;
-  icon?: ReactElement;
+  inBox?: ReactElement | string;
   errortext?:string;
+  disabled?:boolean;
+  myStyle?:string;
+  defaultValue?:number,
+  min?:string,
+  inputContainerStyle?:string,
+  label?:string,
+  icon?:any,
+  onClick?:any,
+  onKeyDown?:any,
+  iconStyle?:string,
+  containerStyle?:string,
+
 }
 
-export function InputIcon({
-  icon,
+const InputIcon = ({
+  inBox,
   value,
   onChange,
   placeholder,
   type,
-  errortext
-}: Props): ReactElement {
+  errortext,
+  iconStyle,
+  disabled,
+  myStyle,
+  defaultValue,
+  inputContainerStyle,
+  containerStyle,
+  min,
+  icon,
+  onClick,
+  label,
+  name,
+  onKeyDown,
+}: Props): ReactElement => {
   const handleOnChange = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
       onChange?.(event);
     },
     [onChange]
   );
-
   return (
-    <div className="input-icon">
-      <label className="input-icon-label">{placeholder}</label>
-      <div className="input-icon-container">
-        {icon && 
-        <div className="icon">{icon}</div>
+    <div className={`input-icon ${myStyle}`} >
+     {label &&  <label className="input-icon-label">{label}</label>}
+      <div className={`input-icon-container ${containerStyle}` }>
+        {inBox && 
+        <div className="in-box" >{inBox }</div>
         }
+        {icon && <span className={`icon ${iconStyle}`} onClick={onClick}>{icon}</span>}
         <input
           type={type}
           placeholder={placeholder}
           onChange={handleOnChange}
-          className="input"
+          className={`${inputContainerStyle} ${inBox ? "rounded-4" : "" } input`}
           value={value}
+          disabled={disabled}
+          defaultValue={defaultValue}
+          min={min}
+          name={`${name || name}`}
+          autoComplete="new-value"
+          id="netran-input"
+          onKeyDown={onKeyDown}
+        
         />
       </div>
       {errortext && 
@@ -53,4 +83,4 @@ export function InputIcon({
     </div>
   );
 }
-export default memo(InputIcon);
+export default InputIcon;

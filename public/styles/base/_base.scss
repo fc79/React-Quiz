@@ -84,7 +84,23 @@ a {
 .padd-l-10{
   padding-left: 10px;
 }
+.height-500{
+  height: 500px;
+} 
 
-
-
+.margin-b-0{
+  margin-bottom:  0 !important;
+}
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: $bgWhite;
+}
+::-webkit-scrollbar-thumb {
+  background: $gray;
+}
+.blue-button{
+  background-color: $blue !important;
+}
 

@@ -4,15 +4,18 @@ import { useState } from "react";
 import { TableProps } from "../../../types";
 import * as yup from 'yup'
 import Table from "../../components/table";
+import { FaLongArrowAltRight } from "react-icons/fa";
+import { FaLongArrowAltLeft } from "react-icons/fa";
+
 export function MainPage({}) {
   const [ data, setData] = useState<TableProps>({rows: "0", columns: "0"});
   const [errorsList, setErrorsList] = useState<Array<any>>([]);
   const [dataIsSet, setDataIsSet] = useState<boolean>(false);
   async function handleValidation(){
-    setErrorsList([])
+    setErrorsList([]);
     const dataSchema = yup.object().shape({
       data: yup.object().shape({
-        rows:yup.string().required()
+        rows:yup.string().required("تعداد سطر الزامی است.")
         .test('is-number-odd-greater-than-3', 'مقدار سطر باید یک عدد فرد و بزرگ‌تر یا مساوی با ۳ باشد.', (value) => {
           if (!value) {
             return false;
@@ -20,7 +23,7 @@ export function MainPage({}) {
           const number = parseInt(value, 10);   
           return !isNaN(number) && number % 2 === 1 && number >= 3;
         }),
-        columns:yup.string().required()
+        columns:yup.string().required("تعداد ستون الزامی است.")
         .test('is-number-odd-greater-than-3', 'مقدار ستون باید یک عدد فرد و بزرگ‌تر یا مساوی با ۳ باشد.', (value) => {
           if (!value) {
             return false;
@@ -66,12 +69,12 @@ const handleBackButton = () =>{
           </div>
         </div>
         <div className="button-container">
-          <CustomButton title="بعدی" onClick={() => handleValidation()} />
+          <CustomButton icon={<FaLongArrowAltRight/>} title="بعدی" onClick={() => handleValidation()} />
         </div>
         </>
         :
         <>
-        <CustomButton myStyle="blue-button" title="بازگشت" onClick={() => handleBackButton()} />
+        <CustomButton icon={<FaLongArrowAltLeft />} myStyle="blue-button" title="بازگشت" onClick={() => handleBackButton()} />
         <Table rows = {data.rows} columns = {data.columns} />
         </>       
 }

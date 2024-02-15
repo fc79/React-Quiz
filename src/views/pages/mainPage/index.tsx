@@ -3,6 +3,7 @@ import { CustomButton, InputIcon, InputTextLabel } from "../../components";
 import { useState } from "react";
 import { TableProps } from "../../../types";
 import * as yup from 'yup'
+import Table from "../../components/table";
 export function MainPage({}) {
   const [ data, setData] = useState<TableProps>({rows: "0", columns: "0"});
   const [errorsList, setErrorsList] = useState<Array<any>>([]);
@@ -39,9 +40,13 @@ export function MainPage({}) {
  
   }
 }
+const handleBackButton = () =>{
+  setDataIsSet(false);
+  setData({rows: "0" , columns: "0"})
+}
   return (
     <div className="main-page">
-      <div className="card">
+      <div className={`card ${dataIsSet ? "height-500" : ""}`}>
         {!dataIsSet ? 
         <>
         <div className="inputs-container">
@@ -65,12 +70,12 @@ export function MainPage({}) {
         </div>
         </>
         :
-        <div></div>
-        
+        <>
+        <CustomButton myStyle="blue-button" title="بازگشت" onClick={() => handleBackButton()} />
+        <Table rows = {data.rows} columns = {data.columns} />
+        </>       
 }
-
       </div>
-
     </div>
     );
 }

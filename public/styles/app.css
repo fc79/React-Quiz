@@ -215,9 +215,6 @@ a {
   border-bottom-left-radius: 0;
   direction: initial;
 }
-.input-icon-container .in-box svg {
-  fill: #3f6193 !important;
-}
 .input-icon-container .rounded-4 {
   border-top-right-radius: 0 !important;
   border-bottom-right-radius: 0 !important;
@@ -302,85 +299,6 @@ a {
   color: #FFFFFF !important;
   margin: 0;
   cursor: pointer;
-}
-
-.input-text-label {
-  position: relative;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding-bottom: 10px;
-}
-.input-text-label-error {
-  font-size: 12px;
-  color: #FC4A56;
-  margin-top: 5px;
-}
-.input-text-label-input-green {
-  width: 100%;
-  height: 58px;
-  border: 1px solid #c9c6c6;
-  border-radius: 8px;
-  background-color: #FFFFFF !important;
-  padding: 0 15px;
-  direction: rtl;
-}
-@media (max-width: 768px) {
-  .input-text-label-input-green {
-    height: 54px;
-  }
-}
-.input-text-label-input-green:focus {
-  outline: none;
-}
-.input-text-label-input-green:-webkit-autofill, .input-text-label-input-green:-webkit-autofill:hover, .input-text-label-input-green:-webkit-autofill:focus, .input-text-label-input-green:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0 31px white inset !important;
-  background-color: #ffffff;
-}
-.input-text-label-input-green::-moz-placeholder {
-  opacity: 0.4;
-}
-.input-text-label-input-green::placeholder {
-  opacity: 0.4;
-}
-.input-text-label-title {
-  position: absolute;
-  top: -6px;
-  right: 24px;
-  background-color: #FFFFFF;
-  width: auto;
-  height: 22px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0 5px;
-}
-.input-text-label-title-text {
-  width: auto;
-  height: auto;
-  font-family: "Vazir" !important;
-  font-style: normal !important;
-  font-weight: 500 !important;
-  font-size: 12px !important;
-  color: #1301bd !important;
-}
-
-.button-icon {
-  width: 110px;
-  height: 40px;
-  border-radius: 41px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  border: unset;
-  margin: 0 7px;
-}
-.button-icon-text {
-  font-size: 14px;
-  font-weight: 600;
-  margin: 0;
 }
 
 .table-container {

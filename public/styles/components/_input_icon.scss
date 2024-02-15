@@ -21,7 +21,7 @@
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
-    height: 35px !important;
+    height: 40px !important;
     padding: 0.5rem 1rem;
     margin-bottom: 0;
     line-height: 1.5;
@@ -35,10 +35,6 @@
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     direction: initial;
-    svg{
-      fill: $navyBlue !important;
-    }
-
      }
      .rounded-4{
       border-top-right-radius: 0 !important;
@@ -59,8 +55,9 @@
       background-color: $white;
       width: 100% !important;
       outline: unset;
-      text-align: right;
+      text-align: center;
       padding: 0.5rem 1rem;
+      direction: ltr;
       line-height: 1.5;
       background-clip: padding-box;
       border: 1px solid $lightBlue;
@@ -68,7 +65,7 @@
       border-radius: 6px;
       box-sizing:border-box;
       padding-left: 1.5rem;
-      height: 35px;
+      height: 40px;
 
   
     &:disabled {
